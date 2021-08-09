@@ -1,0 +1,13 @@
+<%-include("partials/header")-%>
+<h1>Home</h1>
+<p><%= homeStartingContentEJS %></p>
+<%  postsEJS.forEach(function(post){  %>
+<h1><%= post.title%></h1>
+<%# creating the url for the custom "Read More" Link to the post %>
+<%  var url = "/posts/" + _.kebabCase(post.title) %>
+<p>
+  <%= (post.text).substr(0,100) + " ..." %><a href=<%=url%> >Read More</a>
+</p>
+
+<%  }); %>
+<%-include("partials/footer")-%>
